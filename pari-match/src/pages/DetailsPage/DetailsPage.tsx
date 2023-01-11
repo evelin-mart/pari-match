@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Navigate, useLocation, useNavigate } from 'react-router';
 import { RootContext } from '../../context';
 import { coefficient } from '../../types';
+import { Label } from './DetailsPage.styles';
 
 type formData = {
   coefficient: coefficient;
@@ -36,30 +37,30 @@ export const DetailsPage = () => {
         </h2>
         <p>{match.date}</p>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <label>
+          <Label>
             <input
               type='radio'
               value={coefficient.host}
               {...register('coefficient', { required: true })}
             />
-            на победу хозяев
-          </label>
-          <label>
+            {coefficient.host}
+          </Label>
+          <Label>
             <input
               type='radio'
               value={coefficient.draw}
               {...register('coefficient', { required: true })}
             />
-            на ничью
-          </label>
-          <label>
+            {coefficient.draw}
+          </Label>
+          <Label>
             <input
               type='radio'
               value={coefficient.guest}
               {...register('coefficient', { required: true })}
             />
-            на победу гостей
-          </label>
+            {coefficient.guest}
+          </Label>
           {errors.coefficient && <p>Выберите коэффициент!</p>}
           <button>Сделать ставку</button>
         </form>
