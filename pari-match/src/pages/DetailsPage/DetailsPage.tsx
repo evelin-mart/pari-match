@@ -4,10 +4,14 @@ import { Navigate, useLocation, useNavigate } from 'react-router';
 import { RootContext } from '../../context';
 import { coefficient } from '../../types';
 
+type formData = {
+  coefficient: coefficient;
+};
+
 export const DetailsPage = () => {
   const { pathname } = useLocation();
   const id = pathname.slice(7);
-  const { events } = useContext(RootContext);
+  const { events, setBet } = useContext(RootContext);
   const match = events.find((el) => el.id === id);
 
   const navigate = useNavigate();
@@ -15,9 +19,10 @@ export const DetailsPage = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<formData>();
 
-  const onSubmit = () => {
+  const onSubmit = ({ coefficient }: formData) => {
+    if (match) setBet(`${match.host} - ${match.guest} ${coefficient}`);
     navigate('/');
   };
 

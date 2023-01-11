@@ -7,10 +7,12 @@ export interface IMatch {
 
 export type RootContextType = {
   events: IMatch[];
+  bet: string;
+  setBet: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export enum coefficient {
-  host = 'host',
-  guest = 'guest',
-  draw = 'draw',
+  host = 'на победу хозяев',
+  guest = 'на победу гостей',
+  draw = 'на ничью',
 }
