@@ -1,0 +1,20 @@
+[
+  {
+    "id": "i234123890",
+    "host": "Spain",
+    "guest": "Croatia",
+    "date": "11 01 2023 19:00"
+  },
+  {
+    "id": "i159741951",
+    "host": "Argentina",
+    "guest": "Brasil",
+    "date": "12 01 2023 21:00"
+  },
+  {
+    "id": "i785412369",
+    "host": "United Kingdom",
+    "guest": "France",
+    "date": "13 01 2023 20:00"
+  }
+]

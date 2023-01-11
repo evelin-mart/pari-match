@@ -1,7 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { IMatch } from '../../types';
 
 export const MatchCard = ({ match }: { match: IMatch }) => {
-  return <NavLink to={`/match/${match.id}`}></NavLink>;
+  const navigate = useNavigate();
+
+  return (
+    <div onClick={() => navigate(`/match/${match.id}`)}>
+      <p>
+        {match.host} - {match.guest}
+      </p>
+      <p>{match.date}</p>
+    </div>
+  );
 };
